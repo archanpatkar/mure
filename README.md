@@ -1,2 +1,3 @@
-# mure
-A small rule engine for MU/MIU System from the book **Godel Escher Bach ( D. Hofstadter )**
+<img src="./mure.png" />
+
+A small rule engine for MIU System from the book **Godel Escher Bach ( D. Hofstadter )**
