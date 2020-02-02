@@ -1,3 +1,3 @@
 <img src="./mure.png" />
 
-### A small rule engine for MIU System from the book **Godel Escher Bach ( D. Hofstadter )**
+### A rule engine for MIU System from the book **Godel Escher Bach ( D. Hofstadter )**
