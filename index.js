@@ -55,7 +55,7 @@ Object.freeze(mure.rules)
 Object.freeze(mure.apply)
 
 mure.canApply = (str, rule) => {
-  if (rule in mure.rules) return !!mure.rules[rule](str)
+  if (rule in mure.rules) return mure.rules[rule](str)
 }
 
 mure.canApplyWhich = (str) => {
@@ -73,7 +73,7 @@ mure.applyRule = (str = mure.axiom, rule) => {
 }
 
 mure.possibilityTree = (iterations, start = mure.axiom) => {
-  console.log('Starting String: ' + start)
+  // console.log('Starting String: ' + start)
   let temp = []
   let main
   let total
@@ -91,7 +91,12 @@ mure.possibilityTree = (iterations, start = mure.axiom) => {
       if (rules !== undefined) {
         for (const rule of rules) {
           const val = mure.applyRule(m, rule)
-          if (!(val in temp)) temp.push(val)
+          console.log(temp);
+          console.log(val);
+          if(!(val in temp)){
+            console.log("Here!");
+            temp.push(val)
+          } 
         }
       }
     }
