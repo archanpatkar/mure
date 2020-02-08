@@ -96,7 +96,7 @@ mure.possibilityTree = (iterations, start = mure.axiom) => {
           if(!(val in temp)){
             console.log("Here!");
             temp.push(val)
-          } 
+          }
         }
       }
     }
