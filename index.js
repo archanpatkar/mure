@@ -15,15 +15,15 @@ mure.isValid = str => [...str].reduce((o,ch) => symbols.includes(ch)&&o,true);
 mure.rules = [
   str => str.endsWith(I),
   str => str[0] === M,
-  str => str.match(rule3patt) !== null,
-  str => str.match(rule4patt) !== null
+  str => str.match(rule3patt) !== null, // Replace with matchall
+  str => str.match(rule4patt) !== null // Replace with matchall
 ]
 
 mure.apply = [
   str => (str += U),
   str => (str += str.slice(1)),
-  str => str.replace(rule3patt, U),
-  str => str.replace(rule4patt, EMPTY)
+  str => str.replace(rule3patt, U), // Replace with matchall
+  str => str.replace(rule4patt, EMPTY) // Replace with matchall
 ];
 
 Object.freeze(mure.rules)
