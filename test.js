@@ -5,9 +5,9 @@ const str = 'MII'
 // console.log("MIIIIII");
 // console.log([..."MIIIIII".matchAll(rule3patt)]);
 
-console.log(mure.applyRule("MIIIUUIUuuIII",3));
+console.log(mure.applyRule("MIIIUUIUuuUUIII",4));
 
-
+console.log(mure.applyRule("MIIIIIIUIIUIII",3));
 // console.log(mure.isValid(str));
 // console.log(mure.isValid("archan"));
 // console.log(mure.isValid("MI"));
