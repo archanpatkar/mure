@@ -1,12 +1,9 @@
 const mure = {}
-const M = 'M'
-const U = 'U'
-const I = 'I'
-const EMPTY = ''
-const SPACE = ' '
-const symbols = [M, I, U, EMPTY, SPACE]
+const symbols = ['M', 'I', 'U', '', ' ']
 const patt = [/III/gi,/UU/gi]
+const [M,I,U,EMPTY,SPACE] = symbols;
 const error_gen = ()=>{throw new SyntaxError('Invalid MIU String')};
+const app = obj => (str=mure.axiom,rule) => mure.isValid(str) && (rule-1 in obj)?obj[rule-1](str.toUpperCase()):error_gen();
 
 mure.axiom = 'MI'
 
@@ -34,17 +31,15 @@ mure.apply = [
   )
 ]
 
-mure.canApply = (str=mure.axiom, rule) => mure.isValid(str) && (rule-1 in mure.rules)?mure.rules[rule-1](str.toUpperCase()):error_gen()
-
+mure.canApply = app(mure.rules);
+mure.applyRule = app(mure.apply);
 mure.canApplyWhich = str => mure.rules.flatMap((v,i) => mure.canApply(str, i+1)?[i+1]:[]);
 
-mure.applyRule = (str=mure.axiom, rule) => mure.isValid(str) && (rule-1 in mure.apply)?mure.apply[rule-1](str.toUpperCase()):error_gen();
-
-mure.possibility = (iterations, start=mure.axiom) => Array(iterations).fill(0).reduce((p,c) =>
-      !p[1].push(Array.from(p[0] = p[0].map(
-        m => mure.canApplyWhich(m).map(rule => mure.applyRule(m, rule))
-      ).flat(2))) && p,
-      [Array.isArray(start)?[...start]:[start],[start]])[1];
+mure.possibility = (iterations, start=mure.axiom) => Array(iterations).fill(0).reduce((p,c) => 
+  !(p[1].push(Array.from(p[0] = p[0].map(
+    m => mure.canApplyWhich(m).map(rule => mure.applyRule(m, rule))
+  ).flat(2))))?p:p,
+  [Array.isArray(start)?[...start]:[start],[start]])[1];
 
 Object.freeze(mure.apply)
 Object.freeze(mure.rules)
