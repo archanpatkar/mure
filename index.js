@@ -35,7 +35,7 @@ mure.canApply = app(mure.rules);
 mure.applyRule = app(mure.apply);
 mure.canApplyWhich = str => mure.rules.flatMap((v,i) => mure.canApply(str, i+1)?[i+1]:[]);
 
-mure.possibility = (iterations, start=mure.axiom) => Array(iterations).fill(0).reduce((p,c) => 
+mure.possibility = (iterations, start=mure.axiom) => Array(iterations).fill(0).reduce(p => 
   !(p[1].push(Array.from(p[0] = p[0].map(
     m => mure.canApplyWhich(m).map(rule => mure.applyRule(m, rule))
   ).flat(2))))?p:p,
