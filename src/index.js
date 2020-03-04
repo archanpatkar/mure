@@ -1,10 +1,9 @@
-const mure = {}
+const mure = {axiom: 'MI'}
 const symbols = ['M', 'I', 'U', '', ' ']
 const patt = [/III/gi, /UU/gi]
 const [M, I, U, ...extra] = symbols
 const errorGen = () => { throw new SyntaxError('Invalid MIU String') }
 const app = obj => (str = mure.axiom, rule) => mure.isValid(str) && (rule - 1 in obj) ? obj[rule - 1](str.toUpperCase()) : errorGen()
-mure.axiom = 'MI'
 mure.isValid = str => [...str].reduce((o, ch) => symbols.includes(ch.toUpperCase()) && o, true)
 mure.matchAll = (str, ch, times) => [...str].reduce((acc, v, i) => v === ch
   ? Array(times).fill(0).reduce((acc, _, k) => str[i + k] === ch, true)
@@ -32,9 +31,9 @@ mure.canApply = app(mure.rules)
 mure.applyRule = app(mure.apply)
 mure.canApplyWhich = str => mure.rules.flatMap((v, i) => mure.canApply(str, i + 1) ? [i + 1] : [])
 mure.possibility = (iterations, start = mure.axiom) => Array(iterations).fill(0).reduce(p =>
-  (p[1].add(new Set(p[0] = p[0].map(
+  p[1].add(new Set(p[0] = p[0].map(
     m => mure.canApplyWhich(m).map(rule => mure.applyRule(m, rule))
-  ).flat(2)))) ? p : p,
+  ).flat(2))) ? p : p,
 [Array.isArray(start) ? [...start] : [start], new Set([new Set([start])])])[1]
 Object.freeze(mure.apply)
 Object.freeze(mure.rules)
