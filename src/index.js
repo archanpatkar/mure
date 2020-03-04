@@ -34,7 +34,7 @@ mure.possibility = (iterations, start = mure.axiom) => Array(iterations).fill(0)
   p[1].add(new Set(p[0] = p[0].map(
     m => mure.canApplyWhich(m).map(rule => mure.applyRule(m, rule))
   ).flat(2))) ? p : p,
-[Array.isArray(start) ? [...start] : [start], new Set([new Set([start])])])[1]
+[Array.isArray(start) ? [...start] : [start], new Set().add(new Set().add(start))])[1]
 Object.freeze(mure.apply)
 Object.freeze(mure.rules)
 module.exports = Object.freeze(mure)
