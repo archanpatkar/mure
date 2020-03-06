@@ -11,9 +11,12 @@
     "url": "git+https://github.com/archanpatkar/mure.git"
   },
   "keywords": [
-    "rule-engine",
+    "rule engine",
     "miu",
-    "geb"
+    "geb",
+    "production rule system",
+    "term rewriting system",
+    "string rewriting system"
   ],
   "author": "Archan Patkar",
   "license": "MIT",
