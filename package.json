@@ -4,7 +4,7 @@
   "description": "A small rule engine for MIU System from GEB",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/archanpatkar/mure#readme",
   "devDependencies": {
+    "jest": "^25.1.0",
     "standard": "^14.3.1"
   }
 }
