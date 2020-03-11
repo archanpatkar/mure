@@ -29,3 +29,16 @@ test('mure.canApply', () => {
     expect(mure.canApply("MUI",3)).toBe(false);
     expect(mure.canApply("MUI",4)).toBe(false);
 });
+
+test('mure.canApplyWhich', () => {
+    expect(mure.canApplyWhich("MiI")).toEqual(expect.arrayContaining([1,2]));
+    expect(mure.canApplyWhich("MUI")).toEqual(expect.arrayContaining([1,2]));
+    expect(mure.canApplyWhich("MIUU")).toEqual(expect.arrayContaining([2,4]));
+    expect(mure.canApplyWhich("MIIIU")).toEqual(expect.arrayContaining([2,3]));
+    expect(mure.canApplyWhich("MIIUI")).toEqual(expect.arrayContaining([1,2]));
+    expect(mure.canApplyWhich("MIUUIII")).toEqual(expect.arrayContaining([1,2,3,4]));
+});
+
+test('mure.applyRule',() => {
+
+});

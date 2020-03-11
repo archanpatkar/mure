@@ -11,9 +11,9 @@
     "url": "git+https://github.com/archanpatkar/mure.git"
   },
   "keywords": [
-    "rule engine",
     "miu",
     "geb",
+    "rule engine",
     "production rule system",
     "term rewriting system",
     "string rewriting system"
