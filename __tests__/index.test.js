@@ -40,5 +40,12 @@ test('mure.canApplyWhich', () => {
 });
 
 test('mure.applyRule',() => {
-
+    expect(mure.applyRule("MiI",1)).toBe("MIIU");
+    expect(mure.applyRule("MiI",2)).toBe("MIIII");
+    expect(() => mure.applyRule("MiI",3)).toThrow();
+    expect(() => mure.applyRule("MiI",4)).toThrow();
+    expect(mure.applyRule("MUI",1)).toBe("MUIU");
+    expect(mure.applyRule("MUI",2)).toBe("MUIUI");
+    expect(() => mure.applyRule("MUI",3)).toThrow();
+    expect(() => mure.applyRule("MUI",4)).toThrow();
 });
