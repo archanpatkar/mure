@@ -1,4 +1,4 @@
-const mure = require('../src/index')
+const mure = require('../dist/node/mure.min')
 
 test('mure.isValid', () => {
   expect(mure.isValid('MI')).toBe(true)

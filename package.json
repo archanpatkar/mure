@@ -1,9 +1,10 @@
 {
   "name": "mure",
   "version": "0.0.1",
-  "description": "A small rule engine for MIU System from GEB",
+  "description": "A rule engine for MIU System from GEB",
   "main": "index.js",
   "scripts": {
+    "build": "npx standard index.js | node build.js",
     "test": "jest"
   },
   "repository": {
@@ -25,7 +26,12 @@
   },
   "homepage": "https://github.com/archanpatkar/mure#readme",
   "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "babel-preset-minify": "^0.5.1",
+    "browserify": "^16.5.0",
     "jest": "^25.1.0",
-    "standard": "^14.3.1"
+    "standard": "^14.3.1",
+    "vachan": "0.0.2"
   }
 }
