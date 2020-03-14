@@ -1,4 +1,4 @@
-<div style="content-align: center">
+<div align="center">
 <img src="./mure.png" />
 </div>
 
