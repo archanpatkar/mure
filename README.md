@@ -1,4 +1,6 @@
+<div style="content-align: center">
 <img src="./mure.png" />
+</div>
 
 ### A rule engine for MIU System
 
