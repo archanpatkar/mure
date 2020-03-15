@@ -6,7 +6,7 @@
 
 <div align="left">
 <img src="https://cdn.rawgit.com/standard/standard/master/badge.svg" href="https://github.com/standard/standard" />
-<div> <img src="https://github.com/archanpatkar/mure/workflows/build/badge.svg"/> <img src="https://img.shields.io/badge/License-MIT-brightgreen" /> <img src="https://img.shields.io/badge/Coverage-100%-brightgreen" /> <img src="https://img.shields.io/badge/NPM-0.0.1-brightgreen" /> 
+<div> <img src="https://github.com/archanpatkar/mure/workflows/build/badge.svg"/> <img src="https://img.shields.io/badge/License-MIT-brightgreen" /> <img src="https://img.shields.io/badge/Coverage-100%25-brightgreen" /> <img src="https://img.shields.io/badge/NPM-0.0.1-brightgreen" /> 
 </div>
 
 </div>
