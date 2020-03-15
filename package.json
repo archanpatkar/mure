@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx standard index.js | node build.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -25,9 +25,6 @@
     "url": "https://github.com/archanpatkar/mure/issues"
   },
   "homepage": "https://github.com/archanpatkar/mure#readme",
-  "dependencies": {
-    "array.prototype.flatmap": "^1.2.3"
-  },
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",

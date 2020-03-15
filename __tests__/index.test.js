@@ -1,4 +1,4 @@
-const mure = require('../dist/node/mure.min')
+const mure = require('../src/index')
 
 test('mure.isValid', () => {
   expect(mure.isValid('MI')).toBe(true)
@@ -28,6 +28,7 @@ test('mure.canApply', () => {
   expect(mure.canApply('MUI', 2)).toBe(true)
   expect(mure.canApply('MUI', 3)).toBe(false)
   expect(mure.canApply('MUI', 4)).toBe(false)
+  expect(() => mure.canApply('MUI', 6)).toThrow()
 })
 
 test('mure.canApplyWhich', () => {
@@ -66,4 +67,23 @@ test('mure.applyRule', () => {
   expect(mure.applyRule('MIUUIII', 4)).toEqual(expect.arrayContaining(['MIIII']))
   expect(mure.applyRule('MIIII', 3)).toEqual(expect.arrayContaining(['MUI', 'MIU']))
   expect(mure.applyRule('MUUIUU', 4)).toEqual(expect.arrayContaining(['MIUU', 'MUUI']))
+  expect(() => mure.applyRule('kasdjfk', 3)).toThrow()
+})
+  
+test('mure.applyAll', () => {
+    expect(mure.applyAll('MI')).toEqual(expect.arrayContaining(['MIU', 'MII']))
+    expect(mure.applyAll('MUI')).toEqual(expect.arrayContaining(['MUIU', 'MUIUI']))
+    expect(mure.applyAll('MIUU')).toEqual(expect.arrayContaining(['MIUUIUU', 'MI']))
+    expect(mure.applyAll('MIIIU')).toEqual(expect.arrayContaining(['MIIIUIIIU', 'MUU']))
+    expect(mure.applyAll('MIIUI')).toEqual(expect.arrayContaining(['MIIUIU', 'MIIUIIIUI']))
+    expect(mure.applyAll('MIUUIII')).toEqual(expect.arrayContaining(['MIUUIIIU', 'MIUUIIIIUUIII', 'MIUUU', 'MIIII']))
+})
+
+test('mure.possibility', () => {
+    expect(mure.canApplyWhich('MiI')).toEqual(expect.arrayContaining([1, 2]))
+    expect(mure.canApplyWhich('MUI')).toEqual(expect.arrayContaining([1, 2]))
+    expect(mure.canApplyWhich('MIUU')).toEqual(expect.arrayContaining([2, 4]))
+    expect(mure.canApplyWhich('MIIIU')).toEqual(expect.arrayContaining([2, 3]))
+    expect(mure.canApplyWhich('MIIUI')).toEqual(expect.arrayContaining([1, 2]))
+    expect(mure.canApplyWhich('MIUUIII')).toEqual(expect.arrayContaining([1, 2, 3, 4]))
 })
