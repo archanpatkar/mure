@@ -69,114 +69,114 @@ test('mure.applyRule', () => {
   expect(mure.applyRule('MUUIUU', 4)).toEqual(['MIUU', 'MUUI'])
   expect(() => mure.applyRule('kasdjfk', 3)).toThrow()
 })
-  
+
 test('mure.applyAll', () => {
-    expect(mure.applyAll('MI')).toEqual(['MIU', 'MII'])
-    expect(mure.applyAll('MUI')).toEqual(['MUIU', 'MUIUI'])
-    expect(mure.applyAll('MIUU')).toEqual(['MIUUIUU', 'MI'])
-    expect(mure.applyAll('MIIIU')).toEqual(['MIIIUIIIU', 'MUU'])
-    expect(mure.applyAll('MIIUI')).toEqual(['MIIUIU', 'MIIUIIIUI'])
-    expect(mure.applyAll('MIUUIII')).toEqual(['MIUUIIIU', 'MIUUIIIIUUIII', 'MIUUU', 'MIIII'])
+  expect(mure.applyAll('MI')).toEqual(['MIU', 'MII'])
+  expect(mure.applyAll('MUI')).toEqual(['MUIU', 'MUIUI'])
+  expect(mure.applyAll('MIUU')).toEqual(['MIUUIUU', 'MI'])
+  expect(mure.applyAll('MIIIU')).toEqual(['MIIIUIIIU', 'MUU'])
+  expect(mure.applyAll('MIIUI')).toEqual(['MIIUIU', 'MIIUIIIUI'])
+  expect(mure.applyAll('MIUUIII')).toEqual(['MIUUIIIU', 'MIUUIIIIUUIII', 'MIUUU', 'MIIII'])
 })
 
 test('mure.possibility', () => {
-    expect(mure.possibility(2)).toEqual(new Set(
-            [
-                new Set(['MI']), 
-                new Set(['MIU', 'MII']), 
-                new Set(['MIUIU', 'MIIU', 'MIIII'])
-            ]
-        )
-    );
-    expect(mure.possibility(2,['MIU', 'MII'])).toEqual(new Set(
-            [
-                new Set(['MIU', 'MII']), 
-                new Set(['MIUIU', 'MIIU', 'MIIII']), 
-                new Set(['MIUIUIUIU', 'MIIUIIU', 'MIIIIU', 'MIIIIIIII', 'MUI', 'MIU'])
-            ]
-        )
-    );
-    expect(mure.possibility(2,'MII')).toEqual(new Set(
-            [
-                new Set(['MII']), 
-                new Set(['MIIU', 'MIIII']), 
-                new Set(['MIIUIIU', 'MIIIIU', 'MIIIIIIII', 'MUI', 'MIU'])
-            ]
-        )
-    );
-    expect(mure.possibility(2,'MUI')).toEqual(new Set(
-            [
-                new Set(['MUI']), 
-                new Set(['MUIU', 'MUIUI']), 
-                new Set(['MUIUUIU', 'MUIUIU', 'MUIUIUIUI'])
-            ]
-        )
-    );
-    expect(mure.possibility(2,'MIUU')).toEqual(new Set(
-            [
-                new Set(['MIUU']), 
-                new Set(['MIUUIUU', 'MI']), 
-                new Set(['MIUUIUUIUUIUU', 'MIIUU', 'MIUUI', 'MIU', 'MII'])
-            ]
-        )
-    );
-    expect(mure.possibility(2,'MIIIU')).toEqual(new Set(
-            [
-                new Set(['MIIIU']), 
-                new Set(['MIIIUIIIU', 'MUU']), 
-                new Set(
-                    [
-                        'MIIIUIIIUIIIUIIIU', 
-                        'MUUIIIU', 
-                        'MIIUIIU',
-                        'MIIIUUU',
-                        'MUUUU',
-                        'M'
-                    ]
-                )
-            ]
-        )
-    );
-    expect(mure.possibility(2,'MIIUI')).toEqual(new Set(
-            [
-                new Set(['MIIUI']), 
-                new Set(['MIIUIU', 'MIIUIIIUI']), 
-                new Set(
-                    [
-                        'MIIUIUIIUIU',
-                        'MIIUIIIUIU',
-                        'MIIUIIIUIIIUIIIUI',
-                        'MIUIIUI',
-                        'MIIUUUI',
-                        'MIIUIIU'
-                    ]
-                )
-            ]
-        )
-    );
-    expect(mure.possibility(2,'MIUUIII')).toEqual(new Set(
-            [
-                new Set(['MIUUIII']), 
-                new Set(['MIUUIIIU', 'MIUUIIIIUUIII', 'MIUUU', 'MIIII']), 
-                new Set(
-                    [
-                        'MIUUIIIUIUUIIIU',
-                        'MIUUUU',
-                        'MIIIIU',
-                        'MIUUIIIIUUIIIU',
-                        'MIUUIIIIUUIIIIUUIIIIUUIII',
-                        'MIUUUIUUIII',
-                        'MIUUIUUUIII',
-                        'MIUUIIIIUUU',
-                        'MIIIIIUUIII',
-                        'MIUUIIIIIII',
-                        'MIUUUIUUU',
-                        'MIU',
-                        'MIIIIIIII',
-                        'MUI'
-                    ]
-                )
-            ]
-        )
-    );
+  expect(mure.possibility(2)).toEqual(new Set(
+    [
+      new Set(['MI']),
+      new Set(['MIU', 'MII']),
+      new Set(['MIUIU', 'MIIU', 'MIIII'])
+    ]
+  )
+  )
+  expect(mure.possibility(2, ['MIU', 'MII'])).toEqual(new Set(
+    [
+      new Set(['MIU', 'MII']),
+      new Set(['MIUIU', 'MIIU', 'MIIII']),
+      new Set(['MIUIUIUIU', 'MIIUIIU', 'MIIIIU', 'MIIIIIIII', 'MUI', 'MIU'])
+    ]
+  )
+  )
+  expect(mure.possibility(2, 'MII')).toEqual(new Set(
+    [
+      new Set(['MII']),
+      new Set(['MIIU', 'MIIII']),
+      new Set(['MIIUIIU', 'MIIIIU', 'MIIIIIIII', 'MUI', 'MIU'])
+    ]
+  )
+  )
+  expect(mure.possibility(2, 'MUI')).toEqual(new Set(
+    [
+      new Set(['MUI']),
+      new Set(['MUIU', 'MUIUI']),
+      new Set(['MUIUUIU', 'MUIUIU', 'MUIUIUIUI'])
+    ]
+  )
+  )
+  expect(mure.possibility(2, 'MIUU')).toEqual(new Set(
+    [
+      new Set(['MIUU']),
+      new Set(['MIUUIUU', 'MI']),
+      new Set(['MIUUIUUIUUIUU', 'MIIUU', 'MIUUI', 'MIU', 'MII'])
+    ]
+  )
+  )
+  expect(mure.possibility(2, 'MIIIU')).toEqual(new Set(
+    [
+      new Set(['MIIIU']),
+      new Set(['MIIIUIIIU', 'MUU']),
+      new Set(
+        [
+          'MIIIUIIIUIIIUIIIU',
+          'MUUIIIU',
+          'MIIUIIU',
+          'MIIIUUU',
+          'MUUUU',
+          'M'
+        ]
+      )
+    ]
+  )
+  )
+  expect(mure.possibility(2, 'MIIUI')).toEqual(new Set(
+    [
+      new Set(['MIIUI']),
+      new Set(['MIIUIU', 'MIIUIIIUI']),
+      new Set(
+        [
+          'MIIUIUIIUIU',
+          'MIIUIIIUIU',
+          'MIIUIIIUIIIUIIIUI',
+          'MIUIIUI',
+          'MIIUUUI',
+          'MIIUIIU'
+        ]
+      )
+    ]
+  )
+  )
+  expect(mure.possibility(2, 'MIUUIII')).toEqual(new Set(
+    [
+      new Set(['MIUUIII']),
+      new Set(['MIUUIIIU', 'MIUUIIIIUUIII', 'MIUUU', 'MIIII']),
+      new Set(
+        [
+          'MIUUIIIUIUUIIIU',
+          'MIUUUU',
+          'MIIIIU',
+          'MIUUIIIIUUIIIU',
+          'MIUUIIIIUUIIIIUUIIIIUUIII',
+          'MIUUUIUUIII',
+          'MIUUIUUUIII',
+          'MIUUIIIIUUU',
+          'MIIIIIUUIII',
+          'MIUUIIIIIII',
+          'MIUUUIUUU',
+          'MIU',
+          'MIIIIIIII',
+          'MUI'
+        ]
+      )
+    ]
+  )
+  )
 })

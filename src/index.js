@@ -1,4 +1,4 @@
-const flat = a => a.reduce((acc,v)=>acc.concat(v),[])
+const flat = a => a.reduce((acc, v) => acc.concat(v), [])
 const mure = { axiom: 'MI' }
 const symbols = ['M', 'I', 'U', '', ' ']
 const patt = [/III/gi, /UU/gi]
@@ -6,7 +6,7 @@ const [M, I, U, ...extra] = symbols
 const err = i => { if (i) throw new Error('Invalid MIU String'); else throw new Error('Invalid Rule') }
 const matchAll = (str, ch, times) => [...str].reduce((acc, v, i) => v === ch
   ? Array(times).fill(0).reduce((acc, _, k) => str[i + k] === ch, true)
-  ? acc.push({ index: i, input: str }) && acc : acc : acc, [])
+    ? acc.push({ index: i, input: str }) && acc : acc : acc, [])
 const rules = [
   str => str.endsWith(I), str => str[0] === M,
   str => str.match(patt[0]) !== null, str => str.match(patt[1]) !== null
@@ -17,14 +17,14 @@ const apply = [
     .map((ch, i) => i >= match.index && i <= match.index + 2 ? !o ? (o = true) && U : '' : ch).join('')),
   str => matchAll(str, U, 2).map(match =>
     Array.from(match.input)
-    .filter((ch, i) => i < match.index || i > match.index + 1).join(''))
+      .filter((ch, i) => i < match.index || i > match.index + 1).join(''))
 ]
 mure.isValid = str => [...str].reduce((o, ch) => symbols.includes(ch.toUpperCase()) && o, true)
 mure.canApply = (str, rule) => (rule - 1 in rules) ? rules[rule - 1](str.toUpperCase()) : err(0)
 mure.applyRule = (str, rule) => mure.isValid(str) ? mure.canApply(str, rule) ? apply[rule - 1](str.toUpperCase()) : err(0) : err(1)
-mure.canApplyWhich = str => rules.reduce((a, x, i) => a.concat(mure.canApply(str, i + 1) ? [i + 1] : []),[])
-mure.applyAll = str => flat(mure.canApplyWhich(str).map(r => mure.applyRule(str,r)))
-mure.possibility = (iterations, start = mure.axiom) => Array(iterations).fill(0).reduce(p => 
+mure.canApplyWhich = str => rules.reduce((a, x, i) => a.concat(mure.canApply(str, i + 1) ? [i + 1] : []), [])
+mure.applyAll = str => flat(mure.canApplyWhich(str).map(r => mure.applyRule(str, r)))
+mure.possibility = (iterations, start = mure.axiom) => Array(iterations).fill(0).reduce(p =>
   p[1].add(new Set(p[0] = flat(p[0].map(mure.applyAll)))) && p,
-[Array.isArray(start) ? [...start] : [start], new Set().add(new Set(typeof start == 'string'?[start]:start))])[1]
+[Array.isArray(start) ? [...start] : [start], new Set().add(new Set(typeof start === 'string' ? [start] : start))])[1]
 module.exports = Object.freeze(mure)
