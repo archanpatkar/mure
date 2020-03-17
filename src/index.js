@@ -7,12 +7,8 @@ const err = i => { if (i) throw new Error('Invalid MIU String'); else throw new 
 const matchAll = (str, ch, times) => [...str].reduce((acc, v, i) => v === ch
   ? Array(times).fill(0).reduce((acc, _, k) => str[i + k] === ch, true)
     ? acc.push({ index: i, input: str }) && acc : acc : acc, [])
-const rules = [
-  str => str.endsWith(I), str => str[0] === M,
-  str => str.match(patt[0]) !== null, str => str.match(patt[1]) !== null
-]
-const apply = [
-  str => (str += U), str => (str += str.slice(1)),
+const rules = [str => str.endsWith(I), str => str[0] === M, str => str.match(patt[0]) !== null, str => str.match(patt[1]) !== null]
+const apply = [str => (str += U), str => (str += str.slice(1)),
   str => matchAll(str, I, 3).map((match, a, b, c, o = false) => Array.from(match.input)
     .map((ch, i) => i >= match.index && i <= match.index + 2 ? !o ? (o = true) && U : '' : ch).join('')),
   str => matchAll(str, U, 2).map(match =>
