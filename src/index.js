@@ -12,9 +12,7 @@ const apply = [str => (str += U), str => (str += str.slice(1)),
   str => matchAll(str, I, 3).map((match, a, b, c, o = false) => Array.from(match.input)
     .map((ch, i) => i >= match.index && i <= match.index + 2 ? !o ? (o = true) && U : '' : ch).join('')),
   str => matchAll(str, U, 2).map(match =>
-    Array.from(match.input)
-      .filter((ch, i) => i < match.index || i > match.index + 1).join(''))
-]
+    Array.from(match.input).filter((ch, i) => i < match.index || i > match.index + 1).join(''))]
 mure.isValid = str => [...str].reduce((o, ch) => symbols.includes(ch.toUpperCase()) && o, true)
 mure.canApply = (str, rule) => (rule - 1 in rules) ? rules[rule - 1](str.toUpperCase()) : err(0)
 mure.applyRule = (str, rule) => mure.isValid(str) ? mure.canApply(str, rule) ? apply[rule - 1](str.toUpperCase()) : err(0) : err(1)
