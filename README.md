@@ -20,7 +20,7 @@ Mure is rule engine, more specifically a string term rewriting system or more ge
 
 The MIU System is a formal system where in that system there are some valid symbols i.e. **`M`**, **`I`** and **`U`** and using these fundamental symbols you can combine them and create strings in the system. MU System also defines some rules for string transformations, these rules are only applicable if the given string statisfies the rule's neccesary precondition which is essentially a pattern which has occur in the string and only then you can apply and transform it something similar to the rules of inference of Propsitional Logic where the conclusion is proved or derived on basis of the statisfiability of the premise. The rules are given below -
 
-<div align="center">
+<p align="center">
 
 | Rule no. |            Formal Rule           |   Example   |
 |----------|:--------------------------------:|:-----------:|
@@ -29,4 +29,4 @@ The MIU System is a formal system where in that system there are some valid symb
 |     3    |  *x* **`III`** *y* ⟶ *x* **`U`** *y* | **`MIIIU`** ⟶ **`MUU`** |
 |     4    |       *x* **`UU`** *y* ⟶ *xy*      | **`MIUUI`** ⟶ **`MII`** |
 
-</div>
+</p>
