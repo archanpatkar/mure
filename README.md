@@ -10,7 +10,11 @@
 <img src="https://cdn.rawgit.com/standard/standard/master/badge.svg" href="https://github.com/standard/standard" />
 </div>
 
+<div align="center">
+
 ### Introduction
+
+</div>
 
 Mure is rule engine, more specifically a string term rewriting system or more generally a production rule system, but the name **`mure`** stands for `mu rule engine` and has been chosen due to the abbreviation it leads to, the word **mure** and its meaning is very much what Dr. Hofstadter is trying to illustrate using the MU puzzle in the book. The distinction of **`reasoning in the system`** and **`reasoning about the system`** and the limitation of expressing some propositions or proofs from within the system (trapped/constrained from the foundational formalisms or axioms of the system) but as humans, we have meta-reasoning skills which are activated as soon we start to get a hint from getting stuck from reasoning inside the system and we start to think and analyze the system as a whole and in that effort we figure out the limitation of the system.
 
