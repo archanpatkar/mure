@@ -22,7 +22,7 @@ The MU System is a formal system where in that system there are some valid symbo
 
 | Rule no. |            Formal Rule           |   Example   |
 |----------|:--------------------------------:|:-----------:|
-|     1    |     *x***`I`** ⟶ *x***`IU`**     |   MI ⟶ MIU  |
-|     2    |     **`M`***x* ⟶ **`M`***xx*     |   MI ⟶ MII  |
-|     3    |  *x***`III`***y* ⟶ *x***`U`***y* | MIIIU ⟶ MUU |
-|     4    |       *x***`UU`***y* ⟶ *xy*      | MIUUI ⟶ MII |
+|     1    |     *x* **`I`** ⟶ *x* **`IU`**     |   MI ⟶ MIU  |
+|     2    |     **`M`** *x* ⟶ **`M`** *xx*     |   MI ⟶ MII  |
+|     3    |  *x* **`III`** *y* ⟶ *x* **`U`** *y* | MIIIU ⟶ MUU |
+|     4    |       *x* **`UU`** *y* ⟶ *xy*      | MIUUI ⟶ MII |
