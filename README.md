@@ -50,10 +50,20 @@ let { isValid, applyRule } = require("mure");
 ```
 
 #### `mure.isValid(str: String) -> Boolean`
-This function helps you check whether the string is valid within the MIU System. Note: Any function provided by the library is **case insensitive** so both the input strings `mUi` and `MUI` will yield `true`.
+This function helps you check whether the string is valid within the MIU System. Note: Any function provided by the library is **case insensitive** so both the input strings **`mUi`** and **`MUI`** will yield **`true`**.
 ```javascript
 let mure = require("mure");
 
 console.log(mure.isValid("dslkfjl")); // -> Will print false
 console.log(mure.isValid("MII")); // -> Will print true
+```
+
+#### `mure.canApply(str: String, rule: Integer[1..4]) -> Boolean`
+This function takes a string which is valid and an integer within the range [1..4] (You can refer to the above table) and yields a bool which determines whether the given rule is applicable over the string or not.
+```javascript
+let mure = require("mure");
+
+console.log(mure.canApply("MI",2)); // -> Will print true
+console.log(mure.canApply("MIII",3)); // -> Will print true
+console.log(mure.canApply("MIU",4)); // -> Will print false
 ```
