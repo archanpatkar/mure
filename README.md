@@ -50,7 +50,7 @@ let { isValid, applyRule } = require("mure");
 ```
 
 #### `mure.isValid(str: String) -> Boolean`
-This function helps you check whether the string is valid within the MIU System. Note: Any function provided by the library is **case insensitive** so both the strings `mUi` and `MUI` will return yield `true`.
+This function helps you check whether the string is valid within the MIU System. Note: Any function provided by the library is **case insensitive** so both the input strings `mUi` and `MUI` will yield `true`.
 ```javascript
 let mure = require("mure");
 
