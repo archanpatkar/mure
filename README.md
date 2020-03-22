@@ -59,7 +59,7 @@ console.log(mure.isValid("MII")); // -> Will print true
 ```
 
 #### `mure.canApply(str: String, rule: Integer[1..4]) -> Boolean`
-This function takes a string which is valid and an integer within the range [1..4] (You can refer to the above table) and yields a bool which determines whether the given rule is applicable over the string or not.
+This function takes a string which is valid and an integer within the range [1..4] (You can refer to the above table for the rule's transformational semantics) and yields a bool which determines whether the given rule is applicable over the string or not.
 ```javascript
 let mure = require("mure");
 
