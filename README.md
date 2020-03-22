@@ -27,5 +27,23 @@ This library helps you work with the MIU System where you can check if the the g
 
 But you may ask what's the point of this? Dr. Hofstadter is a proponent of a theory of cognitive science as he calls it **`Analogy as the Core of Cognition`** where he proposes that we humans at the core of our cognition use analogy making to learn and correlate things consciously and unconsciously. So MIU System serves as tool for us to learn a simple but profound conclusions about formal axiomatic systems, their limitations and their ability to find out about the limitations about the system from within the framework of the system. So these concepts which we learn through MIU System get transfered directly to and serve as an analogue to the ideas and problems, in the context of Mathematical Logic, Foundation of Mathematics and Gödel's incompleteness theorems, for more details and how this works out you can pick up and read the book **`Gödel, Escher, Bach: an Eternal Golden Braid`** by **`Douglas Hofstadter`**. 
 
+### Installation
+
+#### `NPM`
+```javascript
+npm i mure
+```
+
+#### `CDN`
+```html
+<script src="https://unpkg.com/mure"></script>
+```
+
 ### API Reference
 
+#### `Importing Mure`
+```javascript
+let mure = require("mure");
+// or only include relevant functions
+let { isValid, applyRule } = require("mure");
+```
