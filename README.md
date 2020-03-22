@@ -42,8 +42,18 @@ npm i mure
 ### API Reference
 
 #### `Importing Mure`
+When you import the package you will get an object which includes all the functions needed for working with the **MIU System**.
 ```javascript
 let mure = require("mure");
 // or only include relevant functions
 let { isValid, applyRule } = require("mure");
+```
+
+#### `mure.isValid(str: String) -> Boolean`
+This function helps you check whether the string is valid within the MIU System. Note: Any function provided by the library is **case insensitive** so both the strings `mUi` and `MUI` will return yield `true`.
+```javascript
+let mure = require("mure");
+
+console.log(mure.isValid("dslkfjl")); // -> Will print false
+console.log(mure.isValid("MII")); // -> Will print true
 ```
