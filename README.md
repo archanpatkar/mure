@@ -54,8 +54,8 @@ This function helps you check whether the string is valid within the MIU System.
 ```javascript
 let mure = require("mure");
 
-console.log(mure.isValid("dslkfjl")); // -> Will print false
-console.log(mure.isValid("MII")); // -> Will print true
+console.log(mure.isValid("dslkfjl")); // -> false
+console.log(mure.isValid("MII")); // -> true
 ```
 
 #### `mure.canApply(str: String, rule: Integer[1..4]) -> Boolean`
@@ -63,9 +63,9 @@ This function takes a string and an integer within the range [1..4] (You can ref
 ```javascript
 let mure = require("mure");
 
-console.log(mure.canApply("MI",2)); // -> Will print true
-console.log(mure.canApply("MIII",3)); // -> Will print true
-console.log(mure.canApply("MIU",4)); // -> Will print false
+console.log(mure.canApply("MI",2)); // -> true
+console.log(mure.canApply("MIII",3)); // -> true
+console.log(mure.canApply("MIU",4)); // -> false
 ```
 
 #### `mure.canApplyWhich(str: String) -> Array<Integer[1..4]>`
@@ -73,7 +73,7 @@ This function takes a string and yields an array of integers which is, all the r
 ```javascript
 let mure = require("mure");
 
-console.log(mure.canApply("MI")); // -> Will print [ 1, 2 ]
-console.log(mure.canApply("MIII")); // -> Will print [ 1, 2, 3 ]
-console.log(mure.canApply("MIU")); // -> Will print [ 2 ]
+console.log(mure.canApply("MI")); // -> [ 1, 2 ]
+console.log(mure.canApply("MIII")); // -> [ 1, 2, 3 ]
+console.log(mure.canApply("MIU")); // -> [ 2 ]
 ```
