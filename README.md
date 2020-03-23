@@ -83,8 +83,8 @@ This function takes a string and an integer within the range [1..4] and yields e
 ```javascript
 let mure = require("mure");
 
-console.log(mure.applyRule("MI",1)); // -> MIU
+console.log(mure.applyRule("MI",1)); // -> "MIU"
 console.log(mure.applyRule("MIII",3)); // -> ["MU"]
-console.log(mure.applyRule("MIU",2)); // -> MIUIU
+console.log(mure.applyRule("MIU",2)); // -> "MIUIU"
 console.log(mure.applyRule("MIIII",3)); // -> ["MUI", "MIU"]
 ```
