@@ -14,7 +14,7 @@
 
 Mure is rule engine, more specifically a string term rewriting system or more generally a production rule system, but the name **`mure`** stands for `mu rule engine` and has been chosen due to the abbreviation it leads to, the word **mure** and its meaning is very much what Dr. Hofstadter is trying to illustrate using the MU puzzle in the book. The distinction of **`reasoning in the system`** and **`reasoning about the system`** and the limitation of expressing some propositions or proofs from within the system (trapped/constrained from the foundational formalisms or axioms of the system) but as humans, we have meta-reasoning skills which are activated as soon we start to get a hint from getting stuck from reasoning inside the system and we start to think and analyze the system as a whole and in that effort we figure out the limitation of the system.
 
-The MIU System is a formal system where in that system there are some valid symbols i.e. **`M`**, **`I`** and **`U`** and using these fundamental symbols you can combine them and create strings in the system. MU System also defines some rules for string transformations, these rules are only applicable if the given string statisfies the rule's neccesary precondition which is essentially a pattern which has occur in the string and only then you can apply and transform it something similar to the rules of inference of Propsitional Logic where the conclusion is proved or derived on basis of the statisfiability of the premise. The rules are given below -
+The MIU System is a formal system where in that system there are some valid symbols i.e. **`M`**, **`I`** and **`U`** and using these fundamental symbols you can combine them and create strings in the system. MU System also defines some rules for string transformations, these rules are only applicable if the given string statisfies the rule's neccesary precondition which is essentially a pattern which has occur in the string and only then you can apply and transform it is something similar to the rules of inference of Propsitional Logic where the conclusion is proved or derived on basis of the statisfiability of the premise. The rules are given below -
 
 | Rule no. |            Formal Rule           |   Example   |
 |----------|:--------------------------------:|:-----------:|
@@ -76,4 +76,14 @@ let mure = require("mure");
 console.log(mure.canApply("MI")); // -> [ 1, 2 ]
 console.log(mure.canApply("MIII")); // -> [ 1, 2, 3 ]
 console.log(mure.canApply("MIU")); // -> [ 2 ]
+```
+
+#### `mure.applyRule(str: String, rule: Integer[1..4]) -> String | Array<String>`
+This function takes a string and an integer within the range [1..4] and yields either the transformed string or an array of transformed strings some strings in MIU System may yield different strings for the application of the same rule e.g. Let's take for example the string **`MIIII`** when we try to apply rule **3** there is 2 ways you can transform and reduce the string **`MIIII`** ⟶ **`M[III]I`** ⟶ **`MUI`** or the second way **`MIIII`** ⟶ **`MI[III]`** ⟶ **`MIU`**. Note: This function will throw an exception either if the rule number sent was outside of the given range or the string sent was not a valid string in the MIU System.
+```javascript
+let mure = require("mure");
+
+console.log(mure.applyRule("MI",1)); // -> MIU
+console.log(mure.canApply("MIII",3)); // -> ["MU"]
+console.log(mure.canApply("MIU",2)); // -> MIUIU
 ```
