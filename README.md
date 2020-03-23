@@ -88,3 +88,14 @@ console.log(mure.applyRule("MIII",3)); // -> ["MU"]
 console.log(mure.applyRule("MIU",2)); // -> "MIUIU"
 console.log(mure.applyRule("MIIII",3)); // -> ["MUI", "MIU"]
 ```
+
+#### `mure.applyAll(str: String) -> Array<String>`
+This function takes a string and yields an array of transformed strings by applying all the valid rules on the string. Note: This function will throw an exception if the given string sent was not a valid string in the **MIU System**.
+```javascript
+let mure = require("mure");
+
+console.log(mure.applyAll("MI")); // -> ["MIU", "MII"]
+console.log(mure.applyAll("MIII")); // -> ["MIIIU", "MIIIIII", "MU"]
+console.log(mure.applyAll("MIU")); // -> ["MIUIU"]
+console.log(mure.applyAll("MIIII")); // -> ["MIIIIU", "MIIIIIIII", "MUI", "MIU"]
+```
