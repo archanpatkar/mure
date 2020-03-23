@@ -73,17 +73,18 @@ This function takes a string and yields an array of integers which is, all the r
 ```javascript
 let mure = require("mure");
 
-console.log(mure.canApply("MI")); // -> [ 1, 2 ]
-console.log(mure.canApply("MIII")); // -> [ 1, 2, 3 ]
-console.log(mure.canApply("MIU")); // -> [ 2 ]
+console.log(mure.canApply("MI")); // -> [1, 2]
+console.log(mure.canApply("MIII")); // -> [1, 2, 3]
+console.log(mure.canApply("MIU")); // -> [2]
 ```
 
 #### `mure.applyRule(str: String, rule: Integer[1..4]) -> String | Array<String>`
-This function takes a string and an integer within the range [1..4] and yields either the transformed string or an array of transformed strings some strings in MIU System may yield different strings for the application of the same rule e.g. Let's take for example the string **`MIIII`** when we try to apply rule **3** there is 2 ways you can transform and reduce the string **`MIIII`** ⟶ **`M[III]I`** ⟶ **`MUI`** or the second way **`MIIII`** ⟶ **`MI[III]`** ⟶ **`MIU`**. Note: This function will throw an exception either if the rule number sent was outside of the given range or the string sent was not a valid string in the MIU System.
+This function takes a string and an integer within the range [1..4] and yields either the transformed string or an array of transformed strings some strings in MIU System may yield different strings for the application of the same rule e.g. Let's take for example the string **`MIIII`** when we try to apply **rule 3** there are 2 ways you can transform and reduce the string **`MIIII`** ⟶ **`M[III]I`** ⟶ **`MUI`** or the second way **`MIIII`** ⟶ **`MI[III]`** ⟶ **`MIU`**. This function will only return an array for **rules 3 and 4** because there can be multiple outcomes from the application of rules. Note: This function will throw an exception either if the rule number sent was outside of the given range or the string sent was not a valid string in the **MIU System**.
 ```javascript
 let mure = require("mure");
 
 console.log(mure.applyRule("MI",1)); // -> MIU
-console.log(mure.canApply("MIII",3)); // -> ["MU"]
-console.log(mure.canApply("MIU",2)); // -> MIUIU
+console.log(mure.applyRule("MIII",3)); // -> ["MU"]
+console.log(mure.applyRule("MIU",2)); // -> MIUIU
+console.log(mure.applyRule("MIIII",3)); // -> ["MUI", "MIU"]
 ```
