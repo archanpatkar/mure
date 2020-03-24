@@ -4,7 +4,7 @@
   "description": "A rule engine for MIU System from GEB",
   "main": "index.js",
   "scripts": {
-    "build": "npx standard index.js --fix | node build.js",
+    "build": "npx standard index.js --fix | node ./dist/build.js",
     "test": "jest --coverage"
   },
   "repository": {

@@ -21,7 +21,6 @@ mure.applyAll = str => flat(mure.canApplyWhich(str).map(r => mure.applyRule(str,
 mure.possibility = (iters, start = mure.axiom) => Array(iters).fill(0).reduce(p =>
   p[1].add(new Set(p[0] = flat(p[0].map(mure.applyAll)))) && p,
 [Array.isArray(start) ? [...start] : [start], new Set().add(new Set(typeof start === 'string' ? [start] : start))])[1]
-mure.lazyPossibility = function*(start = mure.axiom,iters=Infinity) { 
-  let current = !Array.isArray(start) ? [start] : start; let i = 0;
+mure.lazyPossibility = function*(start = mure.axiom,iters=Infinity) { let current = !Array.isArray(start) ? [start] : start; let i = 0;
   while(i < iters) yield ++i && new Set(current = flat(current.map(s => mure.applyAll(s))))}
 module.exports = Object.freeze(mure)
