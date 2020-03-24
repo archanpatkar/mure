@@ -79,15 +79,6 @@ test('mure.applyAll', () => {
   expect(mure.applyAll('MIUUIII')).toEqual(['MIUUIIIU', 'MIUUIIIIUUIII', 'MIUUU', 'MIIII'])
 })
 
-test('mure.lazilyApplyAll', () => {
-    expect([...mure.lazilyApplyAll('MI')]).toEqual(mure.applyAll('MI'))
-    expect([...mure.lazilyApplyAll('MUI')]).toEqual(mure.applyAll('MUI'))
-    expect([...mure.lazilyApplyAll('MIUU')]).toEqual(mure.applyAll('MIUU'))
-    expect([...mure.lazilyApplyAll('MIIIU')]).toEqual(mure.applyAll('MIIIU'))
-    expect([...mure.lazilyApplyAll('MIIUI')]).toEqual(mure.applyAll('MIIUI'))
-    expect([...mure.lazilyApplyAll('MIUUIII')]).toEqual(mure.applyAll('MIUUIII'))
-})
-
 test('mure.possibility', () => {
   expect(mure.possibility(2)).toEqual(new Set(
     [
