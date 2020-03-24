@@ -101,9 +101,15 @@ console.log(mure.applyAll("MIIII")); // -> ["MIIIIU", "MIIIIIIII", "MUI", "MIU"]
 ```
 
 #### `mure.possibility(iterations: Integer, start?: String | Array<String>) -> Set<Set<String>>`
-This function takes an integer which is the number of iterations and second an optional argument which is the starting state it either takes a String or an array of string (Default is the axiom from MU Puzzle - "MI"). This function takes the starting state which is a set of valid MIU strings then applies all the possible rules on each string and stores all the unique transformed strings in a new set which is used in the next iteration. This happens for n iterations as specified while calling the function and outcomes from all iterations are stored in a Sets of Sets. For example - 
+This function takes an integer which is the number of iterations and second an optional argument which is the starting state it either takes a String or an array of string (Default is the axiom from MU Puzzle - "MI"). This function takes the starting state which is a set of valid MIU strings then applies all the possible rules on each string and stores all the unique transformed strings in a new set which is used in the next iteration. This happens for n iterations as specified while calling the function and outcomes from all iterations are stored in a Set of Sets. For example - 
 
+Initial State → **`MI`**
 
+**`{ "MI" }`** ⇒
+**`{ "MIU", "MII" }`** ⇒
+**`{ "MIUIU", "MIIU", "MIIII" }`** ⇒
+
+Outcome → **`{ { "MI" }, { "MIU", "MII" }, { "MIUIU", "MIIU", "MIIII" } }`**
 
 Note: This function will throw an exception if the given string sent was not a valid string in the **MIU System**.
 ```javascript
