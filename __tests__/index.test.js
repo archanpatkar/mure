@@ -79,6 +79,15 @@ test('mure.applyAll', () => {
   expect(mure.applyAll('MIUUIII')).toEqual(['MIUUIIIU', 'MIUUIIIIUUIII', 'MIUUU', 'MIIII'])
 })
 
+test('mure.lazilyApplyAll', () => {
+    expect([...mure.lazilyApplyAll('MI')]).toEqual(mure.applyAll('MI'))
+    expect([...mure.lazilyApplyAll('MUI')]).toEqual(mure.applyAll('MUI'))
+    expect([...mure.lazilyApplyAll('MIUU')]).toEqual(mure.applyAll('MIUU'))
+    expect([...mure.lazilyApplyAll('MIIIU')]).toEqual(mure.applyAll('MIIIU'))
+    expect([...mure.lazilyApplyAll('MIIUI')]).toEqual(mure.applyAll('MIIUI'))
+    expect([...mure.lazilyApplyAll('MIUUIII')]).toEqual(mure.applyAll('MIUUIII'))
+})
+
 test('mure.possibility', () => {
   expect(mure.possibility(2)).toEqual(new Set(
     [
@@ -180,3 +189,25 @@ test('mure.possibility', () => {
   )
   )
 })
+
+test('mure.lazyPossibility', () => {
+    let temp = [new Set(['MI'])]
+    let generator = mure.lazyPossibility()
+    for(let i = 0;i < 2;i++) {
+        temp.push(generator.next().value)
+    }
+    expect(new Set(temp)).toEqual(mure.possibility(2))
+    temp = [new Set(['MIU', 'MII'])]
+    generator = mure.lazyPossibility(['MIU', 'MII'])
+    for(let i = 0;i < 2;i++) {
+        temp.push(generator.next().value)
+    }
+    expect(new Set(temp)).toEqual(mure.possibility(2, ['MIU', 'MII']))
+    temp = [new Set(['MII'])]
+    generator = mure.lazyPossibility('MII')
+    for(let i = 0;i < 2;i++) {
+        temp.push(generator.next().value)
+    }
+    expect(new Set(temp)).toEqual(mure.possibility(2, 'MII'))
+})
+  

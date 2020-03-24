@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./mure.png" />
+<img src="./static/mure.png" />
 </div>
 
 # A rule engine for MIU System
