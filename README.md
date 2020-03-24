@@ -105,9 +105,9 @@ This function takes an integer which is the number of iterations and second an o
 
 Initial State → **`MI`**
 
-**`{ "MI" }`** ⇒
-**`{ "MIU", "MII" }`** ⇒
-**`{ "MIUIU", "MIIU", "MIIII" }`** ⇒
+**`{ "MI" }`** ⇒ <br>
+**`{ "MIU", "MII" }`** ⇒ <br>
+**`{ "MIUIU", "MIIU", "MIIII" }`** <br>
 
 Outcome → **`{ { "MI" }, { "MIU", "MII" }, { "MIUIU", "MIIU", "MIIII" } }`**
 
