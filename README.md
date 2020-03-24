@@ -105,11 +105,11 @@ This function takes an integer which is the number of iterations and second an o
 
 Initial State → **`MI`**
 
-*{* **`"MI"`** *}* ⇒ <br>
-*{* **`"MIU"`**, **`"MII"`** *}* ⇒ <br>
-*{* **`"MIUIU"`**, **`"MIIU"`**, **`"MIIII"`** *}* <br>
+*{* **`MI`** *}* ⇒ <br>
+*{* **`MIU`**, **`MII`** *}* ⇒ <br>
+*{* **`MIUIU`**, **`MIIU`**, **`MIIII`** *}* <br>
 
-Outcome → *{* *{* **`"MI"`** *}*, *{* **`"MIU"`**, **`"MII"`** *}*, *{* **`"MIUIU"`**, **`"MIIU"`**, **`"MIIII"`** *}* *}*
+Outcome → *{* *{* **`MI`** *}*, *{* **`MIU`**, **`MII`** *}*, *{* **`MIUIU`**, **`MIIU`**, **`"MIIII`** *}* *}*
 
 Note: This function will throw an exception if the given string sent was not a valid string in the **MIU System**.
 ```javascript
