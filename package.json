@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/archanpatkar/mure#readme",
   "devDependencies": {
-    "@babel/core": "^7.8.7",
+    "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "babel-preset-minify": "^0.5.1",
     "browserify": "^16.5.0",
