@@ -200,5 +200,10 @@ test('mure.lazyPossibility', () => {
         temp.push(generator.next().value)
     }
     expect(new Set(temp)).toEqual(mure.possibility(2, 'MII'))
+    temp = [new Set(['MII'])]
+    for(let i of mure.lazyPossibility('MII',2)) {
+        temp.push(i)
+    }
+    expect(new Set(temp)).toEqual(mure.possibility(2, 'MII'))
 })
   
