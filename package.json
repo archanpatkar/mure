@@ -1,7 +1,7 @@
 {
   "name": "mure",
   "version": "0.0.1",
-  "description": "A rule engine for MIU System from GEB",
+  "description": "A rule engine for MIU System(MU puzzle) from GEB",
   "main": "index.js",
   "scripts": {
     "build": "npx standard index.js --fix | node ./dist/build.js",
@@ -14,6 +14,9 @@
   "keywords": [
     "miu",
     "geb",
+    "godel",
+    "escher",
+    "bach",
     "rule engine",
     "production rule system",
     "term rewriting system",
