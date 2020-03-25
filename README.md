@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./static/mure.png" />
+<img src="https://raw.githubusercontent.com/archanpatkar/mure/master/static/mure.png" />
 </div>
 
 # A rule engine for MIU System
@@ -23,7 +23,7 @@ The **MIU System** is a formal system where in that system there are some valid 
 |     3    |  *x* **`III`** *y* ⟶ *x* **`U`** *y* | **`MIIIU`** ⟶ **`MUU`** |
 |     4    |       *x* **`UU`** *y* ⟶ *xy*      | **`MIUUI`** ⟶ **`MII`** |
 
-This library helps you work with the **MIU System** where you can check if the the given string is valid, check which rules can be applied, apply transformations etc. This project or the initial source code was conceived a couple of years ago when I was trying to solve the MU Puzzle (Challange in the GEB book), the problem statement of the puzzle is given an initial string or axiom **`MI`** can we derive using any number of transformations the string **`MU`**. I was stuck on the puzzle and trying to derive it by hand on paper then eventually got fed up and decided to write a bruteforce algorithm which would run and help me get the rule application order which would yield the answer. Then I eventually found out that it was not possible derive or give proof of the theorem by applying inference rules on the given axiom, explaination for **why?** is provided in the GEB book but if you don't have the book you can refer to a very good and concise explaination on [Wikipedia](https://en.wikipedia.org/wiki/MU_puzzle). Even though you can't derive the string **`MU`** from the given preconditions but still MIU System is a very interesting to work and explore using this library you can play and discover new theorems, higher level patterns etc so I decided to publish this library as a package so other people can build on and reuse this work. 
+This library helps you work with the **MIU System** where you can check if the the given string is valid, check which rules can be applied, apply transformations etc. This project or the initial source code was conceived a couple of years ago when I was trying to solve the MU Puzzle (Challange in the GEB book), the problem statement of the puzzle is given an initial string or axiom **`MI`** can we derive using any number of transformations the string **`MU`**. I was stuck on the puzzle and trying to derive it by hand on paper then eventually got fed up and decided to write a bruteforce algorithm which would run and help me get the rule application order which would yield the answer. Then I eventually found out that it was not possible derive or give proof of the theorem by applying **inference rules** on the given **axiom**, explaination for **why?** is provided in the **GEB book** but if you don't have the book you can refer to a very good and concise explaination on [Wikipedia](https://en.wikipedia.org/wiki/MU_puzzle). Even though you can't derive the string **`MU`** from the given preconditions but still **MIU System** is a very interesting to work and explore using this library you can play and discover new theorems, higher level patterns etc. so I decided to publish this library as a package so other people can build on and reuse this work. 
 
 But you may ask what's the point of this? Dr. Hofstadter is a proponent of a theory of cognitive science as he calls it **Analogy as the Core of Cognition** where he proposes that we humans at the core of our cognition use analogy making to learn through correlating things *consciously* and *unconsciously*. So **MIU System** serves as tool for us to learn a simple but profound conclusions about formal axiomatic systems, their limitations and their ability of performing self referential analysis i.e. to find out about the limitations about the system from within the framework of the system. So these concepts which we learn through **MIU System** get transfered directly to and serve as an analogue to the ideas and problems, in the context of *Mathematical Logic*, *Foundation of Mathematics* and *Gödel's incompleteness theorems*, for more details and how these things correlate and emerge you can pick up and read the book **Gödel, Escher, Bach: an Eternal Golden Braid** by **Douglas Hofstadter**. 
 
@@ -50,7 +50,7 @@ let { isValid, applyRule } = require("mure");
 ```
 
 #### `mure.isValid(str: String) -> Boolean`
-This function helps you check whether the string is valid within the MIU System. Note: Any function provided by the library is **case insensitive** so both the input strings **`mUi`** and **`MUI`** will yield **`true`**.
+This function helps you check whether the string is valid within the **MIU System**. Note: Any function provided by the library is **case insensitive** so both the input strings **`mUi`** and **`MUI`** will yield **`true`**.
 ```javascript
 let mure = require("mure");
 
@@ -101,7 +101,7 @@ console.log(mure.applyAll("MIIII")); // -> ["MIIIIU", "MIIIIIIII", "MUI", "MIU"]
 ```
 
 #### `mure.possibility(iterations: Integer, start?: String | Array<String>) -> Set<Set<String>>`
-This function takes an integer which is the number of iterations and second an optional argument which is the starting state and it either takes a String or an array of strings (Default is the axiom string from MU Puzzle - "MI"). This function takes the starting state which is a set of valid MIU strings then applies all the possible rules on each string and stores all the unique transformed strings in a new set which is used in the next iteration. This happens for n iterations as specified while calling the function and outcomes from all iterations are stored in a Set of Sets which is eventually returned after the completion. 
+This function takes an integer which is the number of iterations and second an optional argument which is the starting state and it either takes a String or an array of strings (Default is the axiom string from MU Puzzle - **`MI`**). This function takes the starting state which is a set of valid MIU strings then applies all the possible rules on each string and stores all the unique transformed strings in a new set which is used in the next iteration. This happens for n iterations as specified while calling the function and outcomes from all iterations are stored in a Set of Sets which is eventually returned after the completion. 
 
 For example - 
 
@@ -134,4 +134,21 @@ console.log(mure.possibility(1,["MUI","MIII"])); // ->
     { 'MUIU', 'MUIUI', 'MIIIU', 'MIIIIII', 'MU' }
 }
 */
+```
+
+#### `mure.lazyPossibility(start?: String | Array<String>, iterations?: Integer) -> Generator<Set<String>>`
+
+This function is similar to the possibility function but is lazy variation where the function yields the Set for each iteration. This technique is very useful where number of iterations is very high or in general you want to avoid eager computation and compute on need basis. By default if you don't pass the iterations argument then you can keep on obtaining for ∞ Infinity, if you pass the iterations arguments only then it will terminate. The default starting string is **`MI`**. Note: This function will throw an exception if the given string sent was not a valid string in the **MIU System**.
+
+```javascript
+let mure = require("mure");
+
+let gen = mure.lazyPossibility();
+console.log(gen.next()); 
+console.log(gen.next()); 
+console.log(gen.next()); 
+
+for(let i of mure.lazyPossibility("MUI",2)) {
+    console.log(i);
+}
 ```
