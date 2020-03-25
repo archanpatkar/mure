@@ -1,9 +1,9 @@
 {
   "name": "mured",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A rule engine for MIU System(MU puzzle) from GEB",
   "main": "index.js",
-  "unpkg": "dist/browser/mure.dist.min.js",
+  "unpkg": "dist/browser/mure.dist.js",
   "scripts": {
     "build": "npx standard index.js --fix | node ./dist/build.js",
     "test": "jest --coverage"
