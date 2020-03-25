@@ -40,6 +40,7 @@ npm i mure
 ```
 
 ### API Reference
+> Mure has no external dependancies
 
 #### `Importing Mure`
 When you import the package you will get an object which includes all the functions needed for working with the **MIU System**.
