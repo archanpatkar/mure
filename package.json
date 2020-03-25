@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A rule engine for MIU System(MU puzzle) from GEB",
   "main": "index.js",
-  "unpkg":"dist/browser/mure.dist.min.js",
+  "unpkg": "dist/browser/mure.dist.min.js",
   "scripts": {
     "build": "npx standard index.js --fix | node ./dist/build.js",
     "test": "jest --coverage"
@@ -36,7 +36,7 @@
     "@babel/preset-env": "^7.9.0",
     "babel-preset-minify": "^0.5.1",
     "browserify": "^16.5.0",
-    "jest": "^25.1.0",
+    "jest": "^25.2.0",
     "standard": "^14.3.3",
     "vachan": "0.0.2"
   }
