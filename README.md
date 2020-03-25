@@ -31,12 +31,12 @@ But you may ask what's the point of this? Dr. Hofstadter is a proponent of a the
 
 #### `NPM`
 ```javascript
-npm i mure
+npm i mured
 ```
 
 #### `CDN`
 ```html
-<script src="https://unpkg.com/mure"></script>
+<script src="https://unpkg.com/mured"></script>
 ```
 
 ### API Reference
