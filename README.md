@@ -138,7 +138,7 @@ console.log(mure.possibility(1,["MUI","MIII"])); // ->
 
 #### `mure.lazyPossibility(start?: String | Array<String>, iterations?: Integer) -> Generator<Set<String>>`
 
-This function is similar to the possibility function but is lazy variation where the function yields the Set for each iteration. This technique is very useful where number of iterations is very high or in general if you want to avoid eager computation and compute on need-to-know basis. By default if you don't pass the iterations argument then you can keep on obtaining for **∞** *Infinity*, if you pass the iterations arguments only then it will terminate. The default starting string is **`MI`**. Note: This function will throw an exception if the given string sent was not a valid string in the **MIU System**.
+This function is similar to the possibility function but is lazy variation where the function is a generator(coroutine based iterator) which yields the Set for each iteration. This technique is very useful where number of iterations is very high or in general if you want to avoid eager computation and compute on need-to-know basis. By default if you don't pass the iterations argument then you can keep on obtaining for **∞** *Infinity*, if you pass the iterations arguments only then it will terminate (beware if using this generator in foreach loops without passing iterations it will go on forever). The default starting string is **`MI`**. Note: This function will throw an exception if the given string sent was not a valid string in the **MIU System**.
 
 ```javascript
 let mure = require("mure");
