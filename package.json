@@ -1,6 +1,6 @@
 {
   "name": "mured",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A rule engine for MIU System(MU puzzle) from GEB",
   "main": "index.js",
   "unpkg": "dist/browser/mure.dist.min.js",
