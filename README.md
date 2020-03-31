@@ -106,7 +106,7 @@ This function takes an integer which is the number of iterations and second an o
 
 For example - 
 
-Initial State → **`MI`**
+Initial State → **`MI`** <br>
 Iterations → **2**
 
 *{* **`MI`** *}* ⇒ <br>
