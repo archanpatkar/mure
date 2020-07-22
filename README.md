@@ -45,7 +45,7 @@ npm i mured
 #### `Importing Mure`
 When you import the package you will get an object which includes all the functions needed for working with the **MIU System**.
 ```javascript
-let mure = require("mure");
+let mure = require("mured");
 // or only include relevant functions
 let { isValid, applyRule } = require("mure");
 ```
@@ -53,7 +53,7 @@ let { isValid, applyRule } = require("mure");
 #### `mure.isValid(str: String) -> Boolean`
 This function helps you check whether the string is valid within the **MIU System**. Note: Any function provided by the library is **case insensitive** so both the input strings **`mUi`** and **`MUI`** will yield **`true`**.
 ```javascript
-let mure = require("mure");
+let mure = require("mured");
 
 console.log(mure.isValid("dslkfjl")); // -> false
 console.log(mure.isValid("MII")); // -> true
@@ -62,7 +62,7 @@ console.log(mure.isValid("MII")); // -> true
 #### `mure.canApply(str: String, rule: Integer[1..4]) -> Boolean`
 This function takes a string and an integer within the range [1..4] (You can refer to the above table for the rule's transformational semantics) and yields a bool which determines whether the given rule is applicable over the string or not. Note: This function will throw an exception if the rule number sent was outside of the given range.
 ```javascript
-let mure = require("mure");
+let mure = require("mured");
 
 console.log(mure.canApply("MI",2)); // -> true
 console.log(mure.canApply("MIII",3)); // -> true
@@ -72,7 +72,7 @@ console.log(mure.canApply("MIU",4)); // -> false
 #### `mure.canApplyWhich(str: String) -> Array<Integer[1..4]>`
 This function takes a string and yields an array of integers which is, all the rules which can be applied on the string.
 ```javascript
-let mure = require("mure");
+let mure = require("mured");
 
 console.log(mure.canApply("MI")); // -> [1, 2]
 console.log(mure.canApply("MIII")); // -> [1, 2, 3]
@@ -82,7 +82,7 @@ console.log(mure.canApply("MIU")); // -> [2]
 #### `mure.applyRule(str: String, rule: Integer[1..4]) -> String | Array<String>`
 This function takes a string and an integer within the range [1..4] and yields either the transformed string or an array of transformed strings some strings in MIU System may yield different strings for the application of the same rule e.g. Let's take for example the string **`MIIII`** when we try to apply **rule 3** there are 2 ways you can transform and reduce the string **`MIIII`** ⟶ **`M[III]I`** ⟶ **`MUI`** or the second way **`MIIII`** ⟶ **`MI[III]`** ⟶ **`MIU`**. This function will only return an array for **rules 3 and 4** because there can be multiple outcomes from the application of rules. Note: This function will throw an exception either if the rule number sent was outside of the given range or the string sent was not a valid string in the **MIU System**.
 ```javascript
-let mure = require("mure");
+let mure = require("mured");
 
 console.log(mure.applyRule("MI",1)); // -> "MIU"
 console.log(mure.applyRule("MIII",3)); // -> ["MU"]
@@ -93,7 +93,7 @@ console.log(mure.applyRule("MIIII",3)); // -> ["MUI", "MIU"]
 #### `mure.applyAll(str: String) -> Array<String>`
 This function takes a string and yields an array of transformed strings by applying all the valid rules on the string. Note: This function will throw an exception if the given string sent was not a valid string in the **MIU System**.
 ```javascript
-let mure = require("mure");
+let mure = require("mured");
 
 console.log(mure.applyAll("MI")); // -> ["MIU", "MII"]
 console.log(mure.applyAll("MIII")); // -> ["MIIIU", "MIIIIII", "MU"]
@@ -117,7 +117,7 @@ Outcome → *{* *{* **`MI`** *}*, *{* **`MIU`**, **`MII`** *}*, *{* **`MIUIU`**,
 
 Note: This function will throw an exception if the given string sent was not a valid string in the **MIU System**.
 ```javascript
-let mure = require("mure");
+let mure = require("mured");
 
 console.log(mure.possibility(3)); // ->
 /*  
@@ -143,7 +143,7 @@ console.log(mure.possibility(1,["MUI","MIII"])); // ->
 This function is similar to the possibility function but is lazy variation where the function is a generator(coroutine based iterator) which yields the Set for each iteration. This technique is very useful where number of iterations is very high or in general if you want to avoid eager computation and compute on need-to-know basis. By default if you don't pass the iterations argument then you can keep on obtaining for **∞** *Infinity*, if you pass the iterations arguments only then it will terminate (beware if using this generator in foreach loops without passing iterations it will go on forever). The default starting string is **`MI`**. Note: This function will throw an exception if the given string sent was not a valid string in the **MIU System**.
 
 ```javascript
-let mure = require("mure");
+let mure = require("mured");
 
 let gen = mure.lazyPossibility();
 console.log(gen.next()); 
