@@ -37,7 +37,7 @@
     "babel-preset-minify": "^0.5.1",
     "browserify": "^16.5.0",
     "jest": "^26.0.1",
-    "standard": "^14.3.3",
+    "standard": "^16.0.0",
     "vachan": "0.0.2"
   }
 }
